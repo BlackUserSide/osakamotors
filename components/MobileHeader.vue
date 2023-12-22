@@ -27,11 +27,6 @@ watch(openHidden, () => {
   restoreFirstOpen.value = true
 })
 
-function backHandler() {
-  openSecondMenu.value = false
-  secondTitle.value = ''
-}
-
 function closeFirstMenu() {
   openHidden.value = false
   secondTitle.value = ''
@@ -39,7 +34,7 @@ function closeFirstMenu() {
 }
 </script>
 <template>
-  <header class="mobile-header-second">
+  <header class="mobile-header">
     <div class="logo-wrapper">
       <svg xmlns="http://www.w3.org/2000/svg" width="121" height="36" viewBox="0 0 121 36" fill="none">
         <path
@@ -107,20 +102,11 @@ function closeFirstMenu() {
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </div>
-      <div class="back-btn-wrapper" v-if="secondTitle !== '' && openSecondMenu" @click="backHandler">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-             class="feather feather-arrow-left">
-          <line x1="19" y1="12" x2="5" y2="12"/>
-          <polyline points="12 19 5 12 12 5"/>
-        </svg>
-      </div>
       <div class="top-line-wrapper">
-        <h4 v-if="secondTitle === '' && !openSecondMenu" class="h4">Menu</h4>
-        <h4 v-else>{{ secondTitle }}</h4>
+        <h4 class="h4">Menu</h4>
       </div>
       <nav class="main-navbar-mobile">
-        <ul v-if="secondTitle === '' && !openSecondMenu">
+        <ul>
           <li @click="handlerSecondMenu('howToBay')">How to buy</li>
           <li @click="handlerSecondMenu('aboutAuctions')">About Auctions</li>
           <li @click="handlerSecondMenu('importRegulationsByCountry')">Import Regulations</li>
@@ -128,16 +114,21 @@ function closeFirstMenu() {
           <li @click="handlerSecondMenu('faq')">Faqs</li>
           <li>Contact</li>
         </ul>
-        <ul v-else>
-          <li v-for="item in currentSecondMenu">{{ item.text }}</li>
-        </ul>
       </nav>
+    </div>
+    <div v-if="restoreOpen" class="hidden-menu-second" :class="openSecondMenu ? 'is-active': 'non-active'">
+      <div class="top-line-wrapper">
+        <h4>{{ secondTitle }}</h4>
+      </div>
+      <ul>
+        <li v-for="item in currentSecondMenu">{{ item.text }}</li>
+      </ul>
     </div>
   </header>
 </template>
 
 <style lang="scss">
-.mobile-header-second {
+.mobile-header {
   max-width: 100%;
   position: fixed;
   width: 100%;
@@ -196,16 +187,9 @@ function closeFirstMenu() {
       animation: fadeOutFirst .3s ease-in-out forwards;
     }
 
-    .back-btn-wrapper {
-      position: absolute;
-      top: 2%;
-      left: 5%;
-      cursor: pointer;
-    }
-
     .close-btn-wrapper {
       position: absolute;
-      top: 2%;
+      top: 5%;
       right: 5%;
       cursor: pointer;
     }
@@ -277,9 +261,14 @@ function closeFirstMenu() {
   }
 }
 
+@media (max-width: 640px) {
+  .mobile-header {
+    display: none;
+  }
+}
 
-@media (min-width: 640px) {
-  .mobile-header-second {
+@media (min-width: 1240px) {
+  .mobile-header {
     display: none;
   }
 }

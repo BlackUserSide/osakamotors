@@ -3,13 +3,15 @@ import './scss/main.scss'
 import InfoBar from "./components/InfoBar.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import MobileHeader from "~/components/MobileHeader.vue";
 
 </script>
 <template>
   <div>
     <InfoBar/>
     <Header/>
-    <!--    <HeaderMobile/>-->
+    <MobileHeader/>
+    <HeaderMobile/>
     <RouterView/>
     <Footer/>
   </div>

@@ -20,7 +20,10 @@ const methodHeader = ref(getDataHidden)
         <h5 class="h5">{{ title }}</h5>
       </div>
       <div class="list-links-wrapper">
-        <a v-for="item in head[methodHeader]" href="#" class="link-hidden-header">{{ item.text }}</a>
+        <NuxtLink v-for="item in head[methodHeader]" :to="item.link" class="link-hidden-header">{{
+            item.text
+          }}
+        </NuxtLink>
       </div>
     </div>
   </div>

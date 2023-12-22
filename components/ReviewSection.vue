@@ -210,4 +210,31 @@ const reviews = ref([{
     }
   }
 }
+
+@media (max-width: 1115px) {
+  .review-item-container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 757px) {
+  .review-item-container {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 490px) {
+  .review-wrapper .top-line-container {
+    width: 90%;
+  }
+  .review-wrapper .top-line-container .h2 {
+    font-size: 1.5rem;
+  }
+  .review-wrapper .top-line-container .subtitle-wrapper p {
+    font-size: 14px;
+  }
+  .review-item-container {
+    max-width: 250px;
+  }
+}
 </style>

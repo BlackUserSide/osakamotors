@@ -1,9 +1,9 @@
 export const headerBar = {
     howToBay: {
-        fromAction: {text: "From Auction", link: ""},
-        domesticStock: {text: "Domestic Stock", link: ""},
-        importRegulations: {text: "Import Regulations", link: ""},
-        ourProcess: {text: "Our Process", link: ""}
+        fromAction: {text: "From Auction", link: "/howtobuy/fromauction"},
+        domesticStock: {text: "Domestic Stock", link: "/howtobuy/domesticstock"},
+        importRegulations: {text: "Import Regulations", link: "/howtobuy/importregulations"},
+        ourProcess: {text: "Our Process", link: "/howtobuy/ourproces"}
     },
     aboutAuctions: {
         auctionHouses: {text: "Auction Houses", link: ""},
